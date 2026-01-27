@@ -32,3 +32,5 @@ then use GNU stow to create symlinks
 ```
 $ stow .
 ```
+
+[![Watch This Video For More Information](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=y6XCebnB9gs)
