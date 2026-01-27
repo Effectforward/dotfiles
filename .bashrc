@@ -30,3 +30,10 @@ alias cat="bat"
 export PATH=$PATH:/home/fedora/.spicetify
 eval "$(starship init bash)"
 
+
+# Source - https://superuser.com/a
+# Posted by ingkebil, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-01-27, License - CC BY-SA 3.0
+
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
