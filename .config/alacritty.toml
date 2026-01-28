@@ -92,3 +92,7 @@ key = "Return"
 mods = "Super|Shift"
 action = "SpawnNewInstance"
 
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
