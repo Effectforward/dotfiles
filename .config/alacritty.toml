@@ -9,7 +9,7 @@ padding = { x = 5, y = 5 }
 decorations = "None"
 startup_mode = "Maximized"
 opacity = 0.9
-
+blur = true
 # SCROLLING
 [scrolling]
 history = 10000
