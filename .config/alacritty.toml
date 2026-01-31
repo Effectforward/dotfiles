@@ -8,9 +8,7 @@ live_config_reload = true
 padding = { x = 5, y = 5 }
 decorations = "None"
 startup_mode = "Maximized"
-opacity = 1
-
-blur = true
+opacity = 0.9
 
 # SCROLLING
 [scrolling]
@@ -19,7 +17,7 @@ multiplier = 3
 
 # FONT
 [font]
-size = 17.0
+size = 16
 
 [font.normal]
 family = "JetBrains Mono Nerd Font"
