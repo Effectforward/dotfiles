@@ -36,3 +36,4 @@ eval "$(starship init bash)"
 
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
+. "$HOME/.cargo/env"
