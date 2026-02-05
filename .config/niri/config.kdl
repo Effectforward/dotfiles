@@ -634,7 +634,7 @@ layer-rule {
 
 cursor {
     xcursor-theme "Bibata-Modern-Ice"
-    xcursor-size 40
+    xcursor-size 34
 
     hide-when-typing
     hide-after-inactive-ms 4000
