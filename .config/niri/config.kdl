@@ -631,3 +631,11 @@ layer-rule {
   match namespace="^noctalia-overview*"
   place-within-backdrop true
 }
+
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 40
+
+    hide-when-typing
+    hide-after-inactive-ms 4000
+}
