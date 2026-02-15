@@ -38,31 +38,63 @@ style = "BoldItalic"
 [colors]
 
   # Primary (background / foreground)
-  [colors.primary]
-  background = "#11121D"
-  foreground = "#a9b1d6"
+  #[colors.primary]
+  #background = "#11121D"
+  #foreground = "#a9b1d6"
 
   # Normal ANSI colors
-  [colors.normal]
-  black   = "#32344a"
-  red     = "#f7768e"
-  green   = "#9ece6a"
-  yellow  = "#e0af68"
-  blue    = "#7aa2f7"
-  magenta = "#ad8ee6"
-  cyan    = "#449dab"
-  white   = "#787c99"
+  #[colors.normal]
+  #black   = "#32344a"
+  #red     = "#f7768e"
+  #green   = "#9ece6a"
+  #yellow  = "#e0af68"
+  #blue    = "#7aa2f7"
+  #magenta = "#ad8ee6"
+  #cyan    = "#449dab"
+  #white   = "#787c99"
 
   # Bright ANSI colors
-  [colors.bright]
-  black   = "#444b6a"
-  red     = "#ff7a93"
-  green   = "#b9f27c"
-  yellow  = "#ff9e64"
-  blue    = "#7da6ff"
-  magenta = "#bb9af7"
-  cyan    = "#0db9d7"
-  white   = "#acb0d0"
+  #[colors.bright]
+  #black   = "#444b6a"
+  #red     = "#ff7a93"
+  # green   = "#b9f27c"
+  #yellow  = "#ff9e64"
+  #blue    = "#7da6ff"
+  #magenta = "#bb9af7"
+  #cyan    = "#0db9d7"
+  #white   = "#acb0d0"
+
+
+
+
+
+
+
+# MONOCHROME THEME (NvChad/Noctis-inspired)
+[colors.primary]
+background = "#0d0d0d"  # Deep black (NvChad base)
+foreground = "#ffffff"  # Pure white
+
+[colors.normal]
+black   = "#1a1a1a"     # Dark gray
+red     = "#ff6b6b"     # Red tint (keeps some color identity)
+green   = "#c1f4c3"     # Light green tint
+yellow  = "#f1e5b8"     # Pale yellow
+blue    = "#7aa2f7"     # NvChad blue (subtle)
+magenta = "#bb9af7"     # NvChad purple
+cyan    = "#89ddff"     # Light cyan
+white   = "#e2e5ef"     # Off-white
+
+[colors.bright]
+black   = "#404040"     # Medium gray
+red     = "#ff8f8f"     # Bright red tint
+green   = "#d4f4d5"     # Bright green tint
+yellow  = "#f4e2af"     # Bright yellow tint
+blue    = "#9ab3ff"     # Bright blue
+magenta = "#d0bfff"     # Bright magenta
+cyan    = "#a3e6ff"     # Bright cyan
+white   = "#ffffff"     # Pure white
+
 
 
 # CURSOR
