@@ -38,3 +38,4 @@ bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 . "$HOME/.cargo/env"
 nerdfetch
+export QT_QPA_PLATFORMTHEME=qt6ct
