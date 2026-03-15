@@ -636,4 +636,5 @@ spawn-at-startup "/usr/bin/lxpolkit"
 //environment variable for qt theming
 environment {
   QT_QPA_PLATFORMTHEME "qt6ct"
+  
 }
