@@ -363,7 +363,7 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+E hotkey-overlay-title="Open file manager: thunar" { spawn-sh "thunar"; }
-    Print hotkey-overlay-title="Screenshot: Flameshot" { spawn-sh "flameshot gui --raw"; }
+    Print hotkey-overlay-title="Screenshot: Flameshot" { spawn-sh "flameshot gui"; }
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
