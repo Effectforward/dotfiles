@@ -651,7 +651,7 @@ blur {
 // Enable blur behind the Alacritty terminal.
 window-rule {
     match app-id="^Alacritty$"
-
+    draw-border-with-background false
     background-effect {
         blur true
     }
