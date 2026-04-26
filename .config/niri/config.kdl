@@ -639,3 +639,22 @@ environment {
   QT_QPA_PLATFORMTHEME "qt6ct"
   
 }
+
+// These are the default values:
+blur {
+    passes 3
+    offset 3
+    noise 0.02
+    saturation 1.5
+}
+
+// Enable blur behind the Alacritty terminal.
+window-rule {
+    match app-id="^Alacritty$"
+
+    background-effect {
+        blur true
+    }
+}
+
+
