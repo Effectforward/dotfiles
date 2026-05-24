@@ -271,7 +271,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
+spawn-sh-at-startup "qs -c /etc/xdg/quickshell/noctalia-shell/"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -318,6 +318,13 @@ window-rule {
     // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+}
+
+window-rule {
+    match app-id="localsend_app"
+    open-floating true
+    default-column-width { fixed 360; }
+    default-window-height { fixed 800; }
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -592,8 +599,7 @@ binds {
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
-    Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-
+    Mod+Space { spawn "qs" "-c" "/etc/xdg/quickshell/noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Shift+Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
@@ -631,8 +637,9 @@ cursor {
     hide-when-typing
     hide-after-inactive-ms 4000
 }
+//no need if you use polkit plugin of noctalia
 //spawns lxpolkit for the authentication of nautulus and gnome disks etc
-spawn-at-startup "/usr/bin/lxpolkit"
+//spawn-at-startup "/usr/bin/lxpolkit"
 
 //environment variable for qt theming
 environment {
