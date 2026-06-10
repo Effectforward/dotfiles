@@ -42,4 +42,10 @@ action = "SpawnNewInstance"
 [[mouse.bindings]]
 action = "PasteSelection"
 mouse = "Middle"
+[colors]
+transparent_background_colors = true
+draw_bold_text_with_bright_colors = true
+[env]
+TERM = "xterm-256color"
+
 
