@@ -23,9 +23,9 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
-#cat alias bat
+#aliases
 alias cat="bat"
-
+alias rm="trash"
 export PATH=$PATH:/home/fedora/.spicetify
 eval "$(starship init bash)"
 
@@ -45,3 +45,11 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export DOTNET_ROOT="$HOME/.dotnet"
 export PATH="$PATH:$HOME/.dotnet"
+
+# opencode
+export PATH=/home/fedora/.opencode/bin:$PATH
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/fedora/.lmstudio/bin"
+# End of LM Studio CLI section
+
