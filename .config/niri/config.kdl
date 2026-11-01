@@ -272,6 +272,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-sh-at-startup "qs -c /etc/xdg/quickshell/noctalia-shell/"
+// spawn-at-startup "noctalia"  // Noctalia v5
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -300,7 +301,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
-    // off
+    off
 //
     // Slow down all animations by this factor. Values below 1 speed them up instead.
      slowdown 2.0
@@ -600,6 +601,7 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
     Mod+Space { spawn "qs" "-c" "/etc/xdg/quickshell/noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+// Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }  // Noctalia v5
     Shift+Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
@@ -679,4 +681,19 @@ window-rule {
     match app-id="resolve"  // or match title="DaVinci Resolve"
     open-fullscreen true
 }
+
+window-rule {
+    match app-id="Waydroid"
+    open-fullscreen true
+}
+// Disable open/close animations of the ueberzug image overlay.
+// The `animations` block in layer-rules is unreleased as of niri 26.04
+// (PR #3481) - uncomment once a niri with it ships.
+// layer-rule {
+//     match namespace="ueberzug"
+//     animations {
+//         layer-open { off }
+//         layer-close { off }
+//     }
+// }
 

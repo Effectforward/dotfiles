@@ -53,3 +53,4 @@ export PATH=/home/fedora/.opencode/bin:$PATH
 export PATH="$PATH:/home/fedora/.lmstudio/bin"
 # End of LM Studio CLI section
 
+export HF_ENDPOINT=https://hf-mirror.com
