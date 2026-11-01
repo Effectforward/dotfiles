@@ -48,10 +48,6 @@ $ stow .
 | `.config/niri/config.kdl` | Niri compositor config |
 | `.config/starship.toml` | Starship prompt config |
 | `.config/starship_Tokyo_night.toml` | Starship Tokyo Night theme preset |
-| `.config/noctalia/settings.json` | Noctalia shell layout & widget config |
-| `.config/noctalia/colors.json` | Active color palette |
-| `.config/noctalia/plugins.json` | Installed plugins list |
-| `.config/noctalia/user-templates.toml` | User theming templates |
 | `scripts/fix-spicetify.sh` | Spicetify fix script |
 
 ## Desktop Preview
