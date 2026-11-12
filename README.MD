@@ -39,6 +39,17 @@ Then use GNU stow to create symlinks:
 $ stow .
 ```
 
+Finally, generate the per-machine Flameshot config:
+
+```
+$ ./scripts/setup-flameshot.sh
+```
+
+Flameshot requires a literal absolute `savePath` and does not expand `~` or
+`$HOME`, so the tracked file is a template in `templates/flameshot.ini`. The
+setup script writes the real `~/.config/flameshot/flameshot.ini` for the
+current machine.
+
 ## What's Tracked
 
 | Path | Description |
@@ -48,6 +59,8 @@ $ stow .
 | `.config/niri/config.kdl` | Niri compositor config |
 | `.config/starship.toml` | Starship prompt config |
 | `.config/starship_Tokyo_night.toml` | Starship Tokyo Night theme preset |
+| `templates/flameshot.ini` | Flameshot config template (uses `@HOME@` placeholder) |
+| `scripts/setup-flameshot.sh` | Generates the local Flameshot config |
 | `scripts/fix-spicetify.sh` | Spicetify fix script |
 
 ## Desktop Preview

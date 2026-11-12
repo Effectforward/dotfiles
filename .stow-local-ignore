@@ -1,0 +1,30 @@
+# GNU Stow package-local ignore list. One Perl regex per line.
+# A local ignore list replaces Stow's built-in default list, so the
+# VCS/editor patterns from the default list are repeated here.
+
+# Stow's built-in defaults
+RCS
+.+,v
+CVS
+\.\#.+
+\.cvsignore
+\.svn
+_darcs
+\.hg
+\.git
+\.gitignore
+\.gitmodules
+.+~
+\#.*\#
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# Repo-specific files that should not be stowed
+UnTrapSettings
+\.bashrc\.save
+
+# Not stowed: the template is used by scripts/setup-flameshot.sh,
+# and flameshot.ini is generated locally per machine.
+^/templates$
+^/\.config/flameshot$
