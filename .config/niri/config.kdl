@@ -7,6 +7,12 @@
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
     prefer-no-csd
+
+debug {
+    // Allows notification actions and window activation from Noctalia.
+    honor-xdg-activation-with-invalid-serial
+}
+
 input {
     keyboard {
         repeat-rate 35
@@ -34,11 +40,11 @@ input {
     touchpad {
         // off
         tap
-        // dwt
+        dwt
         // dwtp
-        // drag false
-        // drag-lock
-        //natural-scroll
+        drag true
+        drag-lock
+        natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
@@ -113,6 +119,7 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
+    background-color "transparent"
     // Set gaps around windows in logical pixels.
     gaps 8
 
@@ -271,8 +278,8 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-sh-at-startup "qs -c /etc/xdg/quickshell/noctalia-shell/"
-// spawn-at-startup "noctalia"  // Noctalia v5
+// spawn-sh-at-startup "qs -c /etc/xdg/quickshell/noctalia-shell/"
+ spawn-at-startup "noctalia"  // Noctalia v5
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -301,7 +308,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
-    off
+    // off
 //
     // Slow down all animations by this factor. Values below 1 speed them up instead.
      slowdown 2.0
@@ -324,8 +331,8 @@ window-rule {
 window-rule {
     match app-id="localsend_app"
     open-floating true
-    default-column-width { fixed 360; }
-    default-window-height { fixed 800; }
+    default-column-width { proportion 0.25; }
+    default-window-height { proportion 0.85; }
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -356,6 +363,14 @@ window-rule {
     clip-to-geometry true
 }
 
+// Floating Noctalia settings window.
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width { proportion 0.85; }
+    default-window-height { proportion 0.97; }
+}
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -370,8 +385,9 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
-    Mod+E hotkey-overlay-title="Open file manager: thunar" { spawn-sh "thunar"; }
+    Mod+E hotkey-overlay-title="Open file manager: nautilus" { spawn-sh "nautilus"; }
     Print hotkey-overlay-title="Screenshot: Flameshot" { spawn-sh "flameshot gui"; }
+    Mod+Shift+S hotkey-overlay-title="Screenshot: Noctalia" { spawn-sh "noctalia msg screenshot-region --annotate"; }
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
@@ -401,8 +417,9 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    //commented out because i use noctalia
+    // XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -517,7 +534,16 @@ binds {
     // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
     // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
 
-    // You can refer to workspaces by index. However, keep in mind that // niri is a dynamic workspace system, so these commands are kind of // "best effort". Trying to refer to a workspace index bigger than // the current workspace count will instead refer to the bottommost // (empty) workspace.  // // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on // will all refer to the 3rd workspace.  Mod+1 { focus-workspace 1; } Mod+2 { focus-workspace 2; }
+    // You can refer to workspaces by index. However, keep in mind that
+    // niri is a dynamic workspace system, so these commands are kind of
+    // "best effort". Trying to refer to a workspace index bigger than
+    // the current workspace count will instead refer to the bottommost
+    // (empty) workspace.
+    //
+    // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
+    // will all refer to the 3rd workspace.
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
     Mod+4 { focus-workspace 4; }
     Mod+5 { focus-workspace 5; }
@@ -600,8 +626,8 @@ binds {
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
-    Mod+Space { spawn "qs" "-c" "/etc/xdg/quickshell/noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-// Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }  // Noctalia v5
+  // Mod+Space { spawn "qs" "-c" "/etc/xdg/quickshell/noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }  // Noctalia v5
     Shift+Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
@@ -623,14 +649,27 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
+        // --- Brightness Controls ---
+    // Uses Noctalia IPC to safely manage backlight without dropping to 0%.
+    XF86MonBrightnessUp   { spawn "noctalia" "msg" "brightness-up"; }
+    XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
+
 }
 
 
 // Set the overview wallpaper on the backdrop.
+// this was for noctalia v4
+//layer-rule {
+//  match namespace="^noctalia-overview*"
+//  place-within-backdrop true
+//
+
 layer-rule {
-  match namespace="^noctalia-overview*"
-  place-within-backdrop true
+    match namespace="^noctalia-backdrop"
+    place-within-backdrop true
 }
+//for noctalia v5
 
 cursor {
     xcursor-theme "Bibata-Modern-Ice"
@@ -686,6 +725,8 @@ window-rule {
     match app-id="Waydroid"
     open-fullscreen true
 }
+
+
 // Disable open/close animations of the ueberzug image overlay.
 // The `animations` block in layer-rules is unreleased as of niri 26.04
 // (PR #3481) - uncomment once a niri with it ships.
